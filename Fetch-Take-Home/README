@@ -1,0 +1,52 @@
+Site Reliability Engineering Health Check
+Overview
+This tool checks the health of multiple HTTP endpoints and logs their availability over time. It sends requests every 15 seconds, marks each endpoint as "UP" or "DOWN" based on its response, and calculates the cumulative availability percentage for each domain.
+
+Files
+health_check.py: The main script that performs health checks and logs availability.
+config.yaml: Configuration file listing the HTTP endpoints to monitor.
+
+Setup
+Prerequisites
+Python 3.x
+
+Install dependencies:
+bash
+Copy code
+pip3 install pyyaml requests
+Configuration File (config.yaml)
+
+Define the endpoints you want to monitor in config.yaml. Here’s an example:
+
+yaml
+Copy code
+- headers:
+    user-agent: fetch-synthetic-monitor
+  method: GET
+  name: fetch index page
+  url: https://fetch.com/
+
+- name: fetch rewards index page
+  url: https://www.fetchrewards.com/
+Each entry can include:
+
+name: Description of the endpoint.
+url: The URL to check.
+method: HTTP method (default is GET).
+headers and body (optional).
+Running the Program
+Run the tool with:
+
+bash
+Copy code
+python3 health_check.py config.yaml
+Example Output
+Every 15 seconds, the tool will log the availability of each domain:
+
+plaintext
+Copy code
+fetch.com has 33% availability percentage
+www.fetchrewards.com has 100% availability percentage
+Stopping the Program
+To stop, press CTRL+C.
+
