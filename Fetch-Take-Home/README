@@ -17,7 +17,6 @@ pip3 install pyyaml requests
 Configuration File (config.yaml)
 
 Define the endpoints you want to monitor in config.yaml. Here’s an example:
-
 yaml
 Copy code
 - headers:
@@ -35,8 +34,8 @@ url: The URL to check.
 method: HTTP method (default is GET).
 headers and body (optional).
 Running the Program
-Run the tool with:
 
+Run the tool with:
 bash
 Copy code
 python3 health_check.py config.yaml
@@ -45,7 +44,7 @@ Every 15 seconds, the tool will log the availability of each domain:
 
 plaintext
 Copy code
-fetch.com has 33% availability percentage
+fetch.com has 67% availability percentage
 www.fetchrewards.com has 100% availability percentage
 Stopping the Program
 To stop, press CTRL+C.
